@@ -1,0 +1,52 @@
+{
+  "serverConfig": {
+    "port": 9900,
+    "host": "0.0.0.0"
+  },
+  "databaseConfig": {
+    "driverClassName": "com.mysql.cj.jdbc.Driver",
+    "jdbcUrl": "jdbc:mysql://localhost:3306/todo",
+    "maxPoolSize": "16",
+    "username": "root",
+    "password": "AbCd@1234",
+    "serverTimezone": "Asia/Ho_Chi_Minh",
+    "autoCommit": true,
+    "useLegacyDatetimeCode": "false",
+    "connectionTimeout": 3600
+  },
+  "tokenConfig": {
+    "privateKey": "/src/main/resources/rsa/token/token_private_key.der",
+    "publicKey": "/src/main/resources/rsa/token/token_public_key.der",
+    "issuer": "todo",
+    "activeTime": 360000,
+    "timeToLive": 144000
+  },
+  "authConfig": {
+    "privateKey": "/src/main/resources/rsa/auth/auth_private_key.der",
+    "publicKey": "/src/main/resources/rsa/auth/auth_public_key.der"
+  },
+  "emailConfig": {
+    "host": "smtp.gmail.com",
+    "port": "465",
+    "from": "helios.email.test@gmail.com",
+    "username": "helios.email.test@gmail.com",
+    "password": ")B(j&/bkyUW9\"/;-",
+    "isDebug": false
+  },
+  "redisConfig": {
+    "host": "0.0.0.0",
+    "port": 7001
+  },
+  "redisExpireTime": {
+    "forgotPassword": 300
+  },
+  "feServer": {
+    "host": "http://localhost:3000",
+    "resetPasswordUrl": "/reset-password"
+  },
+  "staticConfig": {
+    "directory": "file-uploads\\"
+  },
+  "workerPoolSize": 16,
+  "workerMaxExecuteTime": 5000
+}
