@@ -1,0 +1,60 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package tictactoe;
+
+// Game model
+message GameModel {
+  string gameId = 1;
+  string ownerId = 2;
+  string opponentId = 3;
+  int32 gameTurn = 4;
+  int32 gameStatus = 5;
+  map<int32, GameItemList> gameItems = 6;
+  string winnerId = 7;
+  string ownerName = 8;
+  string opponentName = 9;
+}
+
+message GameItemList {
+  repeated GameItemModel items = 1;
+}
+
+message GameItemModel {
+  int32 itemId = 1;
+  int32 itemType = 2;
+}
+
+// Create new game
+message CreateGameRequest {
+}
+
+// Join game
+message JoinGameRequest {
+  string gameId = 1;
+}
+
+// Play game
+message PlayGameRequest {
+  string gameId = 1;
+  int32 rowIndex = 2;
+  int32 colIndex = 3;
+}
+
+message GameRequest {
+  int32 requestType = 1;
+  string gameId = 2;
+  int32 rowIndex = 3;
+  int32 colIndex = 4;
+}
+
+service GameService {
+  rpc createGame(GameRequest) returns (stream GameModel);
+
+  rpc exitGame(GameRequest) returns (GameModel);
+
+  rpc joinGame(GameRequest) returns (stream GameModel);
+
+  rpc playGame(GameRequest) returns (GameModel);
+
+  rpc getGame(GameRequest) returns (stream GameModel);
+}
