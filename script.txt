@@ -1,0 +1,5 @@
+1. Build envoy docker image:
+	docker build -t tic-tac-toe/envoy -f .\envoy.Dockerfile .
+2. Run envoy docker image:
+ 	WIN: docker run -d -p 8080:8080 tic-tac-toe/envoy	
+	LINUX: docker run -d  -p 8080:8080 --net=host  tic-tac-toe/envoy

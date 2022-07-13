@@ -1,0 +1,11 @@
+{
+  "grpcConfig": {
+    "port": 9900
+  },
+  "tokenConfig": {
+    "privateKey": "/src/main/resources/rsa/token_private_key.der",
+    "publicKey": "/src/main/resources/rsa/token_public_key.der",
+    "issuer": "tic-tac-toe",
+    "timeToLive": 144000
+  }
+}

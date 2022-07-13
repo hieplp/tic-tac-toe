@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package tictactoe;
+
+message TokenModel {
+  string token = 1;
+  int64 expiredAt = 2;
+}
+
+// Create user
+message CreateTempUserRequest {
+  string userName = 1;
+}
+
+message CreateTempUserResponse {
+  string userId = 1;
+  string userName = 2;
+  int32 userStatus = 3;
+  TokenModel token = 4;
+}
+
+service AuthService {
+  rpc createTempUser(CreateTempUserRequest) returns (CreateTempUserResponse);
+}
